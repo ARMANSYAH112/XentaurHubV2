@@ -11,7 +11,7 @@ local humanoid = character:WaitForChild("Humanoid")
 --========== UI SETUP ==========
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = player:WaitForChild("PlayerGui")
-screenGui.Name = "XentaurHub"
+screenGui.Name = "XentaurHub-by ArmansyahOffc"
 
 local function addNeon(obj)
 	local stroke = Instance.new("UIStroke", obj)
@@ -39,7 +39,7 @@ keyBox.Size = UDim2.new(0.8,0,0,30)
 keyBox.Position = UDim2.new(0.1,0,0.5,-35)
 keyBox.PlaceholderText = "Masukkan key..."
 keyBox.BackgroundColor3 = Color3.fromRGB(5,5,5)
-keyBox.TextColor3 = Color3.fromRGB(0,255,255)
+keyBox.TextColor3 = Color3.fromRGB(0,230,230)
 Instance.new("UICorner", keyBox).CornerRadius = UDim.new(0,8)
 addNeon(keyBox)
 
@@ -48,7 +48,7 @@ enterBtn.Size = UDim2.new(0.35,0,0,30)
 enterBtn.Position = UDim2.new(0.55,0,0.75,-15)
 enterBtn.Text = "Enter"
 enterBtn.BackgroundColor3 = Color3.fromRGB(0,0,0)
-enterBtn.TextColor3 = Color3.fromRGB(0,255,255)
+enterBtn.TextColor3 = Color3.fromRGB(0,235,235)
 Instance.new("UICorner", enterBtn).CornerRadius = UDim.new(0,8)
 addNeon(enterBtn)
 
@@ -57,7 +57,7 @@ getKeyBtn.Size = UDim2.new(0.35,0,0,30)
 getKeyBtn.Position = UDim2.new(0.1,0,0.75,-15)
 getKeyBtn.Text = "Get Key"
 getKeyBtn.BackgroundColor3 = Color3.fromRGB(0,0,0)
-getKeyBtn.TextColor3 = Color3.fromRGB(0,255,255)
+getKeyBtn.TextColor3 = Color3.fromRGB(0,235,235)
 Instance.new("UICorner", getKeyBtn).CornerRadius = UDim.new(0,8)
 addNeon(getKeyBtn)
 
