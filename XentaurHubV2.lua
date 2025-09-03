@@ -147,16 +147,33 @@ local _, adminToggle = createFeature("Admin Command", false)
 
 --========== FEATURE LOGIC ==========
 -- Fly
+-- Ambil service
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+-- Variabel fly lokal
 local flying = false
 local flyConn
+
+-- Variabel FlyGuiV3
+local flyGuiActive = false
+local FlyGuiV3 = loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))
+
+-------------------------------------------------
+-- TOMBOL 1: Fly Lokal
+-------------------------------------------------
 flyToggle.MouseButton1Click:Connect(function()
 	flying = not flying
-	flyToggle.Text = flying and "ON" or "OFF"
+	flyToggle.Text = flying and "Fly: ON" or "Fly: OFF"
+
 	if flying then
 		local hrp = character:WaitForChild("HumanoidRootPart")
 		flyConn = RunService.RenderStepped:Connect(function()
 			local speed = tonumber(flyBox.Text) or 50
 			local move = Vector3.zero
+
 			if UserInputService:IsKeyDown(Enum.KeyCode.W) then
 				move += workspace.CurrentCamera.CFrame.LookVector * speed
 			end
@@ -169,11 +186,31 @@ flyToggle.MouseButton1Click:Connect(function()
 			if UserInputService:IsKeyDown(Enum.KeyCode.D) then
 				move += workspace.CurrentCamera.CFrame.RightVector * speed
 			end
+
 			hrp.Velocity = move
 		end)
 	else
 		if flyConn then flyConn:Disconnect() end
 		character:WaitForChild("HumanoidRootPart").Velocity = Vector3.zero
+	end
+end)
+
+-------------------------------------------------
+-- TOMBOL 2: FlyGuiV3
+-------------------------------------------------
+flyGuiToggle.MouseButton1Click:Connect(function()
+	flyGuiActive = not flyGuiActive
+	flyGuiToggle.Text = flyGuiActive and "FlyGuiV3: ON" or "FlyGuiV3: OFF"
+
+	if flyGuiActive then
+		task.spawn(function()
+			FlyGuiV3()
+		end)
+	else
+		-- OFF = hancurin GUI bawaan FlyGuiV3 kalau ada
+		if game.CoreGui:FindFirstChild("FlyGuiV3") then
+			game.CoreGui.FlyGuiV3:Destroy()
+		end
 	end
 end)
 
