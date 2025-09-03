@@ -269,7 +269,7 @@ end)
 
 getKeyBtn.MouseButton1Click:Connect(function()
 	if setclipboard then
-		setclipboard("https://example.com/yourkeylink") -- ganti link kamu disini
+		setclipboard("https://discord.gg/ceJD94MW") -- ganti link kamu disini
 	end
 end)
 
