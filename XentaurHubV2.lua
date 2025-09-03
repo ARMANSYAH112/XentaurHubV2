@@ -254,7 +254,7 @@ end)
 
 -- Admin Command slot
 adminToggle.MouseButton1Click:Connect(function()
-	print("loadstring(game:HttpGet("https://angelical.me/ak.lua"))()")
+	print("belum ready")
 end)
 
 --========== LOGIN ==========
